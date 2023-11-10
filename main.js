@@ -181,11 +181,17 @@ regionSearch.addEventListener("change", (e) => {
   }
 });
 
-// 判斷有沒有選項沒填寫
+// 判斷有沒有選項沒填寫或錯誤
 function alertStation(valueArr) {
   let alertLength = 0;
   valueArr.forEach((item) => {
     if (item.value.trim() === "") {
+      alertLength += 1;
+    }
+    if (
+      item === ticketRate &&
+      (Number(item.value.trim()) > 10 || Number(item.value.trim()) < 1)
+    ) {
       alertLength += 1;
     }
   });
@@ -209,7 +215,7 @@ addBtn.addEventListener("click", (e) => {
     ticketRate,
   ];
   if (alertStation(valueArr) > 0) {
-    alert("每個選項都要填寫");
+    alert("請檢查每個選項是否填寫/正確");
     return;
   }
   const idLength = data.length;
