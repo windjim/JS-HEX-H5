@@ -139,7 +139,7 @@ function filterArea(hostCity) {
     return filterData;
   }
 }
-//塞選地區監聽功能
+//篩選地區監聽功能
 regionSearch.addEventListener("change", (e) => {
   const hostCity = e.target.value;
   init(filterArea(hostCity));
@@ -149,6 +149,7 @@ regionSearch.addEventListener("change", (e) => {
 function alertStation(valueArr) {
   let alertState = true;
   valueArr.forEach((item) => {
+    alertState = true;
     if (item.value.trim() === "") {
       item.parentElement.nextElementSibling.style.display = "flex";
       alertState = false;
@@ -160,6 +161,7 @@ function alertStation(valueArr) {
       item.parentElement.nextElementSibling.style.display = "flex";
       alertState = false;
     }
+
     if (alertState) {
       item.parentElement.nextElementSibling.style.display = "none";
     }
@@ -187,7 +189,6 @@ function cleanData() {
 }
 // 增加套票監聽
 addBtn.addEventListener("click", (e) => {
-  console.log(123);
   const valueArr = [
     ticketName,
     ticketImgUrl,
