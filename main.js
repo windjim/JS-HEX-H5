@@ -201,5 +201,7 @@ addBtn.addEventListener("click", (e) => {
   if (!alertStation(valueArr)) return;
   data.push(addObj());
   init(data);
+  //將地區搜尋回到預設值
+  regionSearch.selectedIndex = 0;
   cleanData();
 });
